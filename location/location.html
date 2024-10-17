@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+
+            #map {
+                border-style: solid;
+                border-color: green;
+            }
+
+        </style>
+
+        <title>test</title>
+    </head>
+    <body>
+     
+
+
+
+
+            <div id="map" style="width:100%;height:500px;"></div>
+
+            <script>
+                var map;
+
+
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: {lat: 42.4840723331228, lng: 26.503364787830925},
+                        zoom: 13,
+                    });
+
+
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                                (position) => {
+                            const pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                            };
+                            map.setCenter(pos);
+                            map.setZoom(13);
+                            new google.maps.Marker({
+                                position: pos,
+                                map,
+                                title: "Hello World!",
+                            });
+
+                        },
+                                );
+                    }
+
+
+
+
+                    new google.maps.Marker({
+                        position: pos,
+                        map,
+                        title: "Hello World!",
+                    });
+                }
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v6.6/mapsJavaScriptAPI.js"
+            async defer></script>
+
+            <br>
+            <br>
+
+ 
+
+
+
+
+
+    </body>
+</html>
